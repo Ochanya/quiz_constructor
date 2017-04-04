@@ -1,6 +1,6 @@
 function Question(theQuestion,theWrongAnswers,theAnswer){
   this.question=theQuestion;
-  this.wronganswers=theWrongAnswers;
+  this.=theWrongAnswers;
   this.answer=theAnswer;
   this.isCorrect= function(){}
 
