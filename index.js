@@ -1,29 +1,18 @@
 
 function Question (theQuestion, theAnswer) {
-  this.question=theQuestion;
-  this.answer=theAnswer;
+  this.question = theQuestion;
+  this.answer = theAnswer;
+  this.theChoices = theChoices;
 
-  }
-  function multiChoiceQuestion (theQuestion, theAnswer,theChoices)
-  {
-    Question.call(this, theQuestion,theAnswer, theChoices);
-    this.theChoices=theChoices;
-  }
-  multiChoiceQuestion.prototype=Object.create(Question.prototype);
-
-  multiChoiceQuestion.prototype.multiChoice=function()
-  {
+  this.isCorrect = function (event) {
     let li = event.target;
-    let answerSpace = li.parentElement.nextElementSibling;
+    let answer = li.parentElement.nextElementSibling;
     if (li.textContent === this.theAnswer) {
       answerSpace.textContent = "Correct!";
     } else {
       answerSpace.textContent = "Try Again.";
     }
   }
-
-
-
 
   this.display = function () {
     let source = document.querySelector('#question').innerHTML;

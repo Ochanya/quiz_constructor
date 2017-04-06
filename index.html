@@ -5,6 +5,15 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>Quiz Questions</title>
+    <style>
+      body {
+        width: 80%;
+        margin: 0 auto;
+      }
+      ul {
+        list-style-type: upper-alpha;
+      }
+    </style>
   </head>
 
   <body>
@@ -15,7 +24,7 @@
     <script id="question" type="text/x-handlebars-template">
       <article>
         <h1>Question</h1>
-        <strong>{{theQuestion}}</strong>
+        <strong>{{question}}</strong>
         <ul>
           {{#each theChoices}}
             <li>{{this}}</li>
