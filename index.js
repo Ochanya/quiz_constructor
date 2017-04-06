@@ -1,16 +1,16 @@
 
-function Question (theQuestion, theAnswer) {
+function Question (theQuestion, theChoices, theAnswer) {
   this.question = theQuestion;
   this.answer = theAnswer;
-  this.theChoices = theChoices;
+  this.choices = theChoices;
 
   this.isCorrect = function (event) {
-    let li = event.target;
-    let answer = li.parentElement.nextElementSibling;
-    if (li.textContent === this.theAnswer) {
-      answerSpace.textContent = "Correct!";
+    let input = event.target;
+    let answer = input.parentElement.parentElement.parentElement.nextElementSibling;
+    if (input.outerText === this.answer) {
+      answer.textContent = "Correct!";
     } else {
-      answerSpace.textContent = "Try Again.";
+      answer.textContent = "Try Again.";
     }
   }
 
@@ -19,7 +19,7 @@ function Question (theQuestion, theAnswer) {
     let template = Handlebars.compile(source);
     let html = template(this);
     document.querySelector('#quiz').insertAdjacentHTML('beforeend', html);
-    document.querySelector('#quiz article:last-of-type ul').addEventListener('click', this.isCorrect.bind(this));
+    document.querySelector('#quiz article:last-of-type fieldset').addEventListener('click', this.isCorrect.bind(this));
   }
 }
 let question1 = new Question('The keyword or the property that you use to refer to an object through which they were invoked is ', ['from', 'to', 'this', 'object'], 'this');
