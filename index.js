@@ -5,9 +5,10 @@ function Question (theQuestion, theChoices, theAnswer) {
   this.choices = theChoices;
 
   this.isCorrect = function (event) {
+
     let input = event.target;
     let answer = input.parentElement.parentElement.parentElement.nextElementSibling;
-    if (input.outerText === this.answer) {
+    if (input.textContent === this.answer) {
       answer.textContent = "Correct!";
     } else {
       answer.textContent = "Try Again.";
