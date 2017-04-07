@@ -20,11 +20,11 @@
         <legend>{{question}}</legend>
         <ul>
           {{#each choices}}
-          <li><input type="radio" name="option" value="a" />{{this}}</li>
+          <li><input type="radio" name="option" value={{this}} />{{this}}</li>
           {{/each}}
         </ul>
+        <span class="answer"></span>
       </fieldset>
-      <span class="answer"></span>
     </article>
     </script>
     <script src="./index.js"></script>
